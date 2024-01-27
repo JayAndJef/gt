@@ -13,6 +13,7 @@ pub struct Goto {
 pub enum CommandEnum {
     Add(AddCommand),
     Get(GetCommand),
+    Delete(DeleteCommand),
 }
 
 #[derive(FromArgs, PartialEq, Debug)]
@@ -34,8 +35,17 @@ pub struct AddCommand {
 
 #[derive(FromArgs, PartialEq, Debug)]
 /// Retrieve the path of a bookmark
-#[argh(subcommand, name = "add")]
+#[argh(subcommand, name = "get")]
 pub struct GetCommand {
+    #[argh(positional)]
+    /// name of bookmark
+    pub name: String,
+}
+
+#[derive(FromArgs, PartialEq, Debug)]
+/// Delete a bookmark
+#[argh(subcommand, name = "delete")]
+pub struct DeleteCommand{
     #[argh(positional)]
     /// name of bookmark
     pub name: String,

@@ -9,5 +9,6 @@ fn main() {
     match goto.nested {
         CommandEnum::Add(addargs) => todo!(),
         CommandEnum::Get(getargs) => todo!(),
+        CommandEnum::Delete(deleteargs) => todo!(),
     }
 }
