@@ -14,6 +14,7 @@ pub enum CommandEnum {
     Add(AddCommand),
     Get(GetCommand),
     Delete(DeleteCommand),
+    List(ListCommand),
 }
 
 #[derive(FromArgs, PartialEq, Debug)]
@@ -50,4 +51,9 @@ pub struct DeleteCommand{
     /// name of bookmark
     pub name: String,
 }
+
+#[derive(FromArgs, PartialEq, Debug)]
+/// list all bookmarks
+#[argh(subcommand, name = "list")]
+pub struct ListCommand {}
 
